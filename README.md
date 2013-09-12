@@ -1,3 +1,6 @@
+[![Build Status](https://secure.travis-ci.org/billdueber/ruby-marc-marc4j.png)](http://travis-ci.org/billdueber/ruby-marc-marc4j)
+
+
 # ruby-marc-marc4j
 
 Convert ruby-marc `MARC::Record` objects to/from java marc4j `org.marc4j.marc.Record` objects under JRuby.
