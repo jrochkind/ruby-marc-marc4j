@@ -82,7 +82,6 @@ module MARC
       unless defined? JRUBY_VERSION
         raise LoadError.new, "MARC::MARC4J requires the use of JRuby", nil
       end
-      puts "OK. Here we go"
       if jardir
         Dir.glob("#{jardir}/*.jar") do |x|
           require x

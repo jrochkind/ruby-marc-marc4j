@@ -3,7 +3,7 @@
 require File.expand_path('../lib/marc/marc4j/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name          = "ruby-marc-marc4j"
+  gem.name          = "marc-marc4j"
   gem.version       = Marc::Marc4j::VERSION
   gem.platform      = 'java'
   gem.summary       = %q{convert marc4j and ruby-marc object to/from each other}
