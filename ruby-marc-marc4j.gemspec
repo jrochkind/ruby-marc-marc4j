@@ -5,8 +5,9 @@ require File.expand_path('../lib/marc/marc4j/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.name          = "ruby-marc-marc4j"
   gem.version       = Marc::Marc4j::VERSION
-  gem.summary       = %q{TODO: Summary}
-  gem.description   = %q{TODO: Description}
+  gem.platform      = 'java'
+  gem.summary       = %q{convert marc4j and ruby-marc object to/from each other}
+  gem.description   = %q{Provides converters (and bundled jar files if you don't already have your own) to convert ruby-marc and marc4j MARC records to/from each other. Works only under jruby)}
   gem.license       = "MIT"
   gem.authors       = ["Bill Dueber"]
   gem.email         = "bill@dueber.com"
@@ -17,7 +18,10 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
+  gem.add_dependency "marc", ">= 0.7.1"
+  
   gem.add_development_dependency 'bundler', '~> 1.0'
-  gem.add_development_dependency 'rake', '~> 0.8'
-  gem.add_development_dependency 'yard', '~> 0.8'
+  gem.add_development_dependency 'minitest'
+  gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'yard'
 end
