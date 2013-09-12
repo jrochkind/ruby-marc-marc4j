@@ -44,7 +44,7 @@ converter = MARC::MARC4J.new  # uses bundled marc4j jarfile unless marc4j is alr
 
 A converter only has two useful methods:
 
-* `marc4j = converter.rubymarc_to_marc4j(r)` will convert a ruby-marc `MARC::Record` object to a marcj record
+* `marc4j = converter.rubymarc_to_marc4j(r)` will convert a ruby-marc `MARC::Record` object to a marc4j record
 * `rmarc  = converter.marc4j_to_rubymarc(j)` will convert a marc4j record to a ruby `MARC::Record` object
 
 
