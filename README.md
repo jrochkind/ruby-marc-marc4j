@@ -25,11 +25,11 @@ require '../jarfiles/marc4j_2.5.jar'
 converter = MARC::MARC4J.new # will use above jarfile
 ```
 
-* Call `MARC::MARC4J.new(:jarfile=>'/path/to/marc4j.jar')` to state where your jar file lives
+* Call `MARC::MARC4J.new(:jardir=>'/path/to/marc4j/jar/directory')` to state where your jar files live
 
 ```ruby
 require 'marc/marc4j'
-converter = MARC::MARC4J.new('../jarfiles/marc4j_2.4.jar')
+converter = MARC::MARC4J.new(:jardir => '../jarfiles/') # Load all .jar files in ../jarfiles
 ```
 
 * Call `MARC::MARC4J.new` without a `:jarfile` argument to use the bundled marc4j jarfile.

@@ -22,7 +22,7 @@ describe "loads" do
   end
   
   it "Loads a specific jar file" do
-    converter = MARC::MARC4J.new(:jarfile => ext_file_path('marc4j/lib/marc4j-2.5.1-beta.jar'))
+    converter = MARC::MARC4J.new(:jardir => ext_file_path('marc4j/lib'))
     assert defined?(org.marc4j.marc::MarcFactory), "Specific jar file got loaded"
   end
 end

@@ -4,11 +4,13 @@ require 'marc'
 module MARC
   class MARC4J
     
+    DEFAULT_JAR_RELATIVE_DIR =  File.join(File.dirname(__FILE__), "../../ext/marc4j/lib")
+    
     # Get a new coverter
     def initialize(opts = {})
       @logger = opts.delete(:logger)
-      @jarfile = opts.delete(:jarfile)
-      load_marc4j(@jarfile)
+      @jardir = opts.delete(:jardir)
+      load_marc4j(@jardir)
       @factory = org.marc4j.marc::MarcFactory.newInstance
     end
     
@@ -69,21 +71,26 @@ module MARC
     
     private
     # Load up the jar if we need it
-    def load_marc4j(jarfile = nil)
+    def load_marc4j(jardir)
       unless defined?(org.marc4j.marc::MarcFactory)
-        require_marc4j_jar(jarfile)
+        require_marc4j_jar(jardir)
       end
     end
 
     # Try to get the specified jarfile, or the bundled one if nothing is specified
-    def require_marc4j_jar(jarfile)
+    def require_marc4j_jar(jardir)
       unless defined? JRUBY_VERSION
         raise LoadError.new, "MARC::MARC4J requires the use of JRuby", nil
       end
-      if jarfile
-        require jarfile
+      puts "OK. Here we go"
+      if jardir
+        Dir.glob("#{jardir}/*.jar") do |x|
+          require x
+        end
       else
-        require_relative '../../ext/marc4j/lib/marc4j-2.5.1-beta.jar'
+        Dir.glob(File.join(DEFAULT_JAR_RELATIVE_DIR, "*.jar")) do |x|
+          require x
+        end
       end
     end
   end
