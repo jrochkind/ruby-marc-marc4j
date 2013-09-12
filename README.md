@@ -40,6 +40,20 @@ require 'marc/marc4j'
 converter = MARC::MARC4J.new  # uses bundled marc4j jarfile unless marc4j is already loaded
 ```
 
+## Logging
+
+You can also pass in a logger object, that responds to the normal `debug`/`warn`/etc.
+
+```ruby
+
+require 'marc/marc4j'
+require 'my/logging/library'
+
+logger  = My::Logging::Library.new(opts)
+converter = MARC::MARC4J.new(:logger=>logger)
+```
+
+
 ## Doing the conversions
 
 A converter only has two useful methods:

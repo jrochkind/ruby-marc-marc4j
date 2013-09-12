@@ -35,7 +35,7 @@ module MARC
           # would raise.
           if subfield.getCode > 255
             if @logger
-              logger.warn("Marc4JReader: Corrupted MARC data, record id #{marc4j.getControlNumber}, field #{marc4j_data.tag}, corrupt subfield code byte #{subfield.getCode}. Skipping subfield, but continuing with record.")
+              @logger.warn("Marc4JReader: Corrupted MARC data, record id #{marc4j.getControlNumber}, field #{marc4j_data.tag}, corrupt subfield code byte #{subfield.getCode}. Skipping subfield, but continuing with record.")
             end
             next
           end
