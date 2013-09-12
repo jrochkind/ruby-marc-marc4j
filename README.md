@@ -1,7 +1,7 @@
 [![Build Status](https://secure.travis-ci.org/billdueber/ruby-marc-marc4j.png)](http://travis-ci.org/billdueber/ruby-marc-marc4j)
 
 
-# ruby-marc-marc4j
+# marc-marc4j
 
 Convert ruby-marc `MARC::Record` objects to/from java marc4j `org.marc4j.marc.Record` objects under JRuby.
 
@@ -11,6 +11,13 @@ spool some functionality out to java code that relies on marc4j obejcts.
 * [Homepage](https://github.com/billdueber/ruby-marc-marc4j)
 * [Issues](https://github.com/billdueber/ruby-marc-marc4j/issues)
 
+
+## Installation
+
+```
+chruby jruby # or however you use JRuby
+gem install marc-marc4j
+```
 
 ## Creating a converter
 
@@ -70,9 +77,6 @@ stick the result somewhere.
 * `marc4j` records are built using a marc4j factory object. This defaults to a `org.marc4j.marc.MarcFactory`, but will
 use whatever class is in the java system property `org.marc4j.marc.MarcFactory` (as seen in the [marc4j source code](https://github.com/marc4j/marc4j/blob/master/src/org/marc4j/marc/MarcFactory.java#L47)).
 
-## Install
-
-    $ gem install ruby-marc-marc4j
 
 ## Copyright
 
