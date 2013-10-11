@@ -8,7 +8,7 @@ require 'test_helper'
 describe "basics" do
 
   it "has a version" do
-    version = Marc::Marc4j.const_get('VERSION')
+    version = MARC::MARC4J.const_get('VERSION')
     assert !version.empty?, 'should have a VERSION constant'
   end
 

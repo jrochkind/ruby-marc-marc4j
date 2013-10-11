@@ -4,7 +4,7 @@ require File.expand_path('../lib/marc/marc4j/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.name          = "marc-marc4j"
-  gem.version       = Marc::Marc4j::VERSION
+  gem.version       = MARC::MARC4J::VERSION
   gem.platform      = 'java'
   gem.summary       = %q{convert marc4j and ruby-marc object to/from each other}
   gem.description   = %q{Provides converters (and bundled jar files if you don't already have your own) to convert ruby-marc and marc4j MARC records to/from each other. Works only under jruby)}

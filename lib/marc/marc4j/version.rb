@@ -1,6 +1,6 @@
-module Marc
-  module Marc4j
+module MARC
+  class MARC4J
     # ruby-marc-marc4j version
-    VERSION = "0.1.1"
+    VERSION = "0.1.2"
   end
 end
