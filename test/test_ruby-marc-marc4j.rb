@@ -53,7 +53,33 @@ describe "round trips" do
       assert_equal r1, r2, "Marc4j records match on record #{r1['001'].value}"
     end
   end
+end
+
+describe "encoding" do
+  before do
+    @converter = MARC::MARC4J.new
+  end
   
+  it "outputs strings tagged as UTF8" do
+    marc4j_record = nil
+    File.open(support_file_path "test_data.utf8.mrc") do |file|
+      reader  = org.marc4j.MarcStreamReader.new(file.to_inputstream)
+      marc4j_record = reader.next
+    end
+
+    
+    ruby_record   = @converter.marc4j_to_rubymarc(marc4j_record)
+
+    ruby_record.fields.each do |field|
+      if field.kind_of? MARC::DataField
+        field.subfields.each do |sf|
+          assert_equal sf.value.encoding.name, "UTF-8", "subfield value marked UTF-8"
+        end
+      else # ControlField
+        assert_equal field.value.encoding.name, "UTF-8", "field value marked UTF-8"
+      end
+    end
+  end
 end
 
     
