@@ -80,6 +80,27 @@ describe "encoding" do
       end
     end
   end
+
+  describe "with a bad UTF-8 byte in marc4j" do
+    before do
+      File.open(support_file_path "bad_utf_byte.utf8.marc") do |file|
+        reader  = org.marc4j.MarcStreamReader.new(file.to_inputstream)
+        marc4j_record = reader.next
+        @ruby_record   = @converter.marc4j_to_rubymarc(marc4j_record)
+      end
+    end
+    
+    
+    it "replaces with replacement char in ruby-marc" do
+      value = @ruby_record['300']['a']
+
+      assert_equal  value.encoding.name, "UTF-8", "value tagged UTF-8"
+      assert_equal "This is a bad byte: '\uFFFD' and another: '\uFFFD'", value, "Bad bytes replaced with \\uFFFD"
+      assert        value.valid_encoding?, "value is valid encoding"
+    end
+  end
+
+
 end
 
     
